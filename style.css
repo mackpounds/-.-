@@ -1,0 +1,279 @@
+ *{
+     padding: 0;
+     margin: 0;
+     box-sizing: border-box;
+     font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+ }
+ :root{
+     --primary-color: rgb(11, 78, 179);
+     --grey-color: #dcdcdc;
+     --text-color: #000000;
+     --whit-color: #ffffff;
+ }
+body{
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: var(--grey-color);
+}
+
+ .form-set{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 550px;
+    transition: all 0.3s ease-in-out;
+    gap: 30px;
+    padding: 1.2rem 20px;
+    border: 1px solid var(--text-color);
+    border-radius: 5px;
+    background-color: var(--whit-color);
+    overflow: hidden;
+ }
+ #form-set{
+    transition: all 0.3s ease-in-out;
+ }
+ .form-set h1{
+    text-align: center;
+    font-size: 2.5rem;
+ }
+
+/* //  progressiveBar */
+.progress-bar{
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    counter-reset: step;
+    margin: 0.45rem 0 1rem;
+}
+.progress-bar::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    height: 4px;
+    width: 100%;
+    background: var(--grey-color);
+}
+.progress{
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    height: 4px;
+    background-color: var(--primary-color);
+    transition: all 0.4s;
+}
+.progress-step{
+    width: 2.1875rem;
+    height: 2.1875rem;
+    background-color: var(--grey-color);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: 500;
+    z-index: 1;
+}
+.progress-step::before {
+    counter-increment: step;
+    content: counter(step);
+}
+.progress-step::after{
+    content: attr(data-title);
+    position: absolute;
+    color: var(--text-color);
+    top: calc(100% - 0.01rem);
+}
+ .progress-step-active{
+    border:4px solid var(--primary-color);
+    /* background-color: var(--primary-color); */
+    color: var(--primary-color);
+    transition: all 0.3s;
+}
+
+.form-section{
+    display: none;
+    flex-direction: column;
+    width: 100%;
+    gap: 5px;
+    transition: all 0.3s;
+}
+.active-form{
+    display: flex;
+    transition: all 0.3s;
+    transform-origin: top;
+    animation: animate .5s;
+}
+@keyframes animate{
+    from{
+        transform: translateX(-290px);
+        opacity: 0;
+    }
+    to{
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+ .form-section input{
+    padding: 15px;
+    border: 1px solid var(--grey-color);
+    border-radius: 10px;
+    outline: 0;
+    font-size: 1rem;
+ }
+ .error-section{
+    opacity: 0;
+    transition: all 0.5s;
+    font-size: 12px;
+    width: 100%;
+    border-radius: 2px;
+    padding: 7px;
+    box-shadow: 2px 2px 5px rgb(0, 0, 0,0.2);
+    background-color: rgba(247, 6, 6, 0.136);
+ }
+ .error-username{
+    opacity: 0;
+    height: 0;
+    transition: all 0.3s;
+    font-size: 12px;
+    width: 100%;
+    padding: 8px;
+    border-radius: 3px;
+    background-color: rgba(247, 6, 6, 0.136);
+ }
+ .error-username.active{
+    opacity: 1;
+    height: 100%;
+ }
+ .error{
+    display:  none;
+    transition: all 0.3s;
+    font-size: 12px;
+    width: 100%;
+    padding: 8px;
+    background-color: rgba(247, 6, 6, 0.136);
+ }
+ .error.active{
+    animation: shake 0.3s;
+   
+ }
+ @keyframes shake{
+    0%{
+        transform: translateX(-12px);
+    }
+    40%{
+        transform: translateX(12px);
+    }
+    80%{
+        transform: translateX(-12px);
+    }
+    100%{
+        transform: translateX(0px);
+    }
+ }
+
+ .password-holder{
+    position: relative;
+    width: 100%;
+    padding: calc(1rem + 10px);
+    border: 1px solid var(--grey-color);
+    border-radius: 10px;
+    outline: 0;
+    font-size: 1rem;
+    overflow: hidden;
+ }
+ #password{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 70%;
+    border: 0;
+
+ }
+ .password-holder span{
+    position: absolute;
+    top: 10px;
+    font-size: small;
+    color: var(--text-color);
+    right: 0;
+    width: 30%;
+    height: 55%;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-left: 1px solid var(--grey-color);
+ }
+ .btn--layout--1{
+    width: 100%;
+    display: flex;
+    justify-content: end;
+
+    .nxt-btn{
+        width: 50%;
+    }
+ }
+ .btn--layout{
+    width: 100%;
+    display: grid;
+    grid-auto-flow: column;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+ }
+ .form-section button{
+    /* // width: 50%; */
+    padding: 15px;
+    border: 0;
+    outline: 0;
+    color: var(--whit-color);
+    background-color: var(--primary-color);
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+ }
+
+#btn-submit{
+    opacity: 0.2;
+    transition: all 0.2s;
+}
+#btn-submit .active{
+    opacity: 1;
+}
+
+ #fourth-section #select-code{
+    padding: 8px;
+    border: 0;
+    background-color: var(--grey-color);
+    border-radius: 2px;
+ }
+ #fourth-section #number::-webkit-inner-spin-button,
+ #fourth-section #number::-webkit-outer-spin-button{
+    display: none;
+ }
+ .file-container{
+    width: 100%;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    justify-content: center;
+    text-align: center;
+    border-radius: 12px;
+    border: 1px solid var(--grey-color);
+    margin: 0.67rem 0 2rem;
+ }
+
+ .file-container #id{
+    display: none;
+}
+
+ .browse-file{
+    padding: 10px 40px;
+    display: block;
+    border-radius: 10px;
+    background-color: var(--grey-color);
+ }

@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css" type="text/css">
+    <script src="https://kit.fontawesome.com/9def338393.js" crossorigin="anonymous" defer></script>
+    <script src="node.js" defer></script>
+    <title>Multi Form</title>
+</head>
+
+<body>
+    
+    <form  method="get" class="form-set" id="form-set" data-multi-set>
+        <h1>Registration form</h1>
+
+        <!-- progress-bar -->
+        <div class="progress-bar" data-progress-bar>
+            <div class="progress" data-progress></div>
+
+            <span class="progress-step progress-step-active" data-progress-step data-title="Intro"></span>
+            <span class="progress-step" data-progress-step data-title="username"></span>
+            <span class="progress-step" data-progress-step data-title="Address"></span>
+            <span class="progress-step" data-progress-step data-title="ID"></span>
+        </div>
+
+        <!-- four different forms -->
+
+        <!-- first form: NAME -->
+       <div class="form-section active-form" id="first-section" data-set-form>
+            <label for="name">Full name</label>
+            <input type="text" name="name" id="name" placeholder="Jane Doe" autocomplete="name" required>
+            <p id="error-name-js" class="error"></p><br>
+            <label for="email"> Email</label>
+            <input type="text" name="email" placeholder="example@mail.com" id="email" autocomplete="email" required>
+            <p id="error-email-js" class="error"></p><br>
+            <div class="btn--layout--1">
+                <button type="button" class="nxt-btn" id="nxt-btn-one" data-nxt-btn>Next</button>
+             </div>
+        </div>
+
+        <!-- second form: USERNAME -->
+        <div class="form-section" id="second-section" data-set-form>
+            <label for="username"> Username</label>
+            <input type="text" name="username" id="username" autocomplete="nickname">
+            <p id="error-username-js" class="error-username"></p><br>
+            <label for="password">Password</label>
+           <span class="password-holder">
+            <input type="password" name="password"  id="password" autocomplete="new-password" required>
+            <span id="show" onclick="checke()">Show password</span>
+           </span>
+            <p id="error-password-js" class="error"></p>
+            <p id="error-password-u" class="error"></p>
+            <p id="error-password-l" class="error"></p>
+            <p id="error-password-s" class="error"></p>
+            <p id="error-password-n" class="error"></p><br>
+            <div class="btn--layout">
+                <button type="button" class="prev-btn" data-prev-btn>Previous</button>
+                <button type="button" class="nxt-btn" id="nxt-btn-sec" data-nxt-btn>Next</button>
+            </div>
+        </div>
+
+
+        <!-- third form: ADRESS -->
+        <div class="form-section" id="third-section" data-set-form>
+            <label for="dob">D.O.B</label>
+            <input type="date" name="dob" id="dob" autocomplete="bday">
+            <p id="error-dob-js" class="error"></p>
+            <label for="address"> Address</label>
+            <input type="text" name="address" id="address" autocomplete="address-line1">
+            <p id="error-address-js" class="error"></p>
+            <label for="city"> City</label>
+            <input type="text" name="city" id="city" autocomplete="address-level2">
+            <p id="error-city-js" class="error"></p>
+            <label for="state"> State</label>
+            <input type="text" name="state" id="state" autocomplete="address-level1">
+            <p id="error-state-js" class="error"></p><br>
+            <div class="btn--layout">
+                <button type="button" class="prev-btn" data-prev-btn>Previous</button>
+                <button type="button" class="nxt-btn" id="nxt-btn-third" data-nxt-btn>Next</button>
+            </div>
+        </div>
+
+
+
+        <div class="form-section" id="fourth-section" data-set-form>
+            <label for="country"> Country</label>
+            <input type="text" name="country" id="country" autocomplete="country-name">
+            <p id="error-country-js" class="error"></p>
+            <label for="number">Phone Number</label>
+            <span class="area-number">
+                <select name="select-code" id="select-code">
+                    <option value="united-states">+1</option>
+                    <option value="united-kingdom">+44</option>
+                    <option value="Nigeria">+234</option>
+                </select>
+                <input type="number" name="number" placeholder="(000) 000-0000" id="number">
+            </span>
+            <p id="error-section" class="error-section"></p>
+            <label for="verif-form-id">Identity Verification Documents e.g Passport, Driver License</label>
+            <div class="file-container">
+                <span class="fa fa-arrow-up-from-bracket"></span>
+                <p>Drag and drop file here</p>
+                <p>Or</p>
+                 <label for="id" class="browse-file">Browse file</label>
+                 <input type="file" name="id" id="id">
+            </div>
+            <p id="error-file-js" class="error"></p>
+            <div class="btn--layout">
+                <button type="button" class="prev-btn" data-prev-btn>Previous</button>
+                <button type="submit" id="btn-submit" class="next-btn" disabled>Register</button>
+            </div>
+        </div>
+
+    </form>
+
+</body>
+</html>
